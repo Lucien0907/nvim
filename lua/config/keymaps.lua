@@ -17,10 +17,10 @@ map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
 -- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize +10<cr>", { desc = "Increase Window Height" })
-map("n", "<C-Down>", "<cmd>resize -10<cr>", { desc = "Decrease Window Height" })
-map("n", "<C-Left>", "<cmd>vertical resize -5<cr>", { desc = "Decrease Window Width" })
-map("n", "<C-Right>", "<cmd>vertical resize +5<cr>", { desc = "Increase Window Width" })
+map("n", "<C-Up>", "<cmd>resize +5<cr>", { desc = "Increase Window Height" })
+map("n", "<C-Down>", "<cmd>resize -5<cr>", { desc = "Decrease Window Height" })
+map("n", "<C-Left>", "<cmd>vertical resize -8<cr>", { desc = "Decrease Window Width" })
+map("n", "<C-Right>", "<cmd>vertical resize +8<cr>", { desc = "Increase Window Width" })
 
 -- Move Lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
@@ -33,9 +33,9 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 -- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+-- map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+-- map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+-- map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>bd", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
 map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
@@ -148,9 +148,10 @@ map("n", "<leader>gL", function()
 end, { desc = "Lazygit Log (cwd)" })
 
 -- quit
-map("n", "<leader>qq", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
+map("n", "<leader>qf", LazyVim.ui.bufremove, { desc = "Delete Buffer" })
 map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit ALl" })
-map("n", "<leader>ww", "<cmd>update<cr>", { desc = "Update" })
+map("n", "<leader>bw", "<cmd>update<cr>", { desc = "Update" })
+
 map("n", "<M-s>", "<cmd>update<cr>", { desc = "Update" })
 
 -- highlights under cursor
@@ -165,9 +166,8 @@ local lazyterm = function() LazyVim.terminal(nil, { cwd = LazyVim.root() }) end
 map("n", "<leader>ft", lazyterm, { desc = "Terminal (Root Dir)" })
 map("n", "<leader>fT", function() LazyVim.terminal() end, { desc = "Terminal (cwd)" })
 -- map("n", "<c-/>", lazyterm, { desc = "Terminal (Root Dir)" })
--- vim.keymap.del("n", "<c-/>")
 -- map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
-map("n", "<c-->", lazyterm, { desc = "which_key_ignore" })
+-- map("n", "<c-->", lazyterm, { desc = "which_key_ignore" })
 
 -- Terminal Mappings
 -- map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
@@ -178,13 +178,16 @@ map("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to Upper Window" })
 map("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to Right Window" })
 -- map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 -- map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
-map("t", "<c-->", "<cmd>close<cr>", { desc = "which_key_ignore" })
+-- map("t", "<c-->", "<cmd>close<cr>", { desc = "which_key_ignore" })
+vim.keymap.del("n", "<c-/>")
 
 -- windows
 map("n", "<leader>w", "<c-w>", { desc = "Windows", remap = true })
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
+map("n", "<c-w>w", "<Esc>", { desc = "Nothing", remap = true })
+map("n", "<leader>ww", "<Esc>", { desc = "Nothing", remap = true })
 LazyVim.toggle.map("<leader>wm", LazyVim.toggle.maximize)
 
 -- tabs
@@ -200,3 +203,24 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 -- DO NOT USE `LazyVim.safe_keymap_set` IN YOUR OWN CONFIG!!
 -- use `vim.keymap.set` instead
 -- local mymap = vim.keymap.set
+vim.keymap.set("n", "<localleader>j", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
+vim.keymap.set("n", "<localleader>jo", ":noautocmd MoltenEnterOutput<CR>", { desc = "open output window", silent = true })
+vim.keymap.set("n", "<localleader>rr", ":MoltenReevaluateCell<CR>", { desc = "re-eval cell", silent = true })
+vim.keymap.set("v", "<localleader>r", ":<C-u>MoltenEvaluateVisual<CR>gv", { desc = "execute visual selection", silent = true })
+vim.keymap.set("n", "<localleader>oh", ":MoltenHideOutput<CR>", { desc = "close output window", silent = true })
+vim.keymap.set("n", "<localleader>md", ":MoltenDelete<CR>", { desc = "delete Molten cell", silent = true })
+
+-- if you work with html outputs:
+vim.keymap.set("n", "<localleader>mx", ":MoltenOpenInBrowser<CR>", { desc = "open output in browser", silent = true })
+
+local runner = require("quarto.runner")
+vim.keymap.set("n", "<localleader>rc", runner.run_cell,  { desc = "run cell", silent = true })
+vim.keymap.set("n", "<localleader>ra", runner.run_above, { desc = "run cell and above", silent = true })
+vim.keymap.set("n", "<localleader>rA", runner.run_all,   { desc = "run all cells", silent = true })
+vim.keymap.set("n", "<localleader>rl", runner.run_line,  { desc = "run line", silent = true })
+vim.keymap.set("v", "<localleader>r",  runner.run_range, { desc = "run visual range", silent = true })
+vim.keymap.set("n", "<localleader>RA", function()
+  runner.run_all(true)
+end, { desc = "run all cells of all languages", silent = true })
+
+vim.keymap.set("n", "<BS>", "<CMD>Oil<CR>", { desc = "Open parent directory" })

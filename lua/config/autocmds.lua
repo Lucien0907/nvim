@@ -147,3 +147,18 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 -- Add any additional autocmds here
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "PersistenceLoadPre",
+  callback = function()
+    vim.cmd("%bd")
+  end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "PersistenceLoadPost",
+  callback = function()
+    vim.cmd("Neotree " .. "show")
+    -- require("oil").open()
+  end,
+})
