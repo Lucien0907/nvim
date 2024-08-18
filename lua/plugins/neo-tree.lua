@@ -15,9 +15,9 @@
       -- The name used here must be the same name you would use in a require() call.
       sources = {
         "filesystem",
-        "buffers",
         "git_status",
-        -- "document_symbols",
+        "document_symbols",
+        "buffers",
       },
       add_blank_line_at_top = false, -- Add a blank line at the top of the tree.
       auto_clean_after_session_restore = false, -- Automatically clean up broken neo-tree buffers saved in sessions
@@ -63,14 +63,15 @@
         -- of the top visible node when scrolled down.
         sources = {
           { source = "filesystem" },
-          { source = "buffers" },
           { source = "git_status" },
+          { source = "document_symbols" },
+          -- { source = "buffers" },
         },
-        content_layout = "start", -- only with `tabs_layout` = "equal", "focus"
+        content_layout = "center", -- only with `tabs_layout` = "equal", "focus"
         --                start  : |/ 󰓩 bufname     \/...
         --                end    : |/     󰓩 bufname \/...
         --                center : |/   󰓩 bufname   \/...
-        tabs_layout = "equal", -- start, end, center, equal, focus
+        tabs_layout = "center", -- start, end, center, equal, focus
         --             start  : |/  a  \/  b  \/  c  \            |
         --             end    : |            /  a  \/  b  \/  c  \|
         --             center : |      /  a  \/  b  \/  c  \      |
@@ -227,7 +228,7 @@
         },
         name = {
           trailing_slash = false,
-          highlight_opened_files = false, -- Requires `enable_opened_markers = true`.
+          highlight_opened_files = true, -- Requires `enable_opened_markers = true`.
           -- Take values in { false (no highlight), true (only loaded),
           -- "all" (both loaded and unloaded)}. For more information,
           -- see the `show_unloaded` config of the `buffers` source.
@@ -460,7 +461,7 @@
         -- "never"  means directory scans are never async.
         scan_mode = "shallow", -- "shallow": Don't scan into directories to detect possible empty directory a priori
         -- "deep": Scan into directories to detect empty or grouped empty directories a priori.
-        bind_to_cwd = false, -- true creates a 2-way binding between vim's cwd and neo-tree's root
+        bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
         cwd_target = {
           sidebar = "tab", -- sidebar is when position = left or right
           current = "window", -- current is when position = current
@@ -540,7 +541,7 @@
         group_empty_dirs = false, -- when true, empty folders will be grouped together
         search_limit = 50, -- max number of search results when using filters
         follow_current_file = {
-          enabled = false, -- This will find and focus the file in the active buffer every time
+          enabled = true, -- This will find and focus the file in the active buffer every time
           --               -- the current file is changed while the tree is open.
           leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
@@ -549,7 +550,7 @@
         -- "open_current",-- netrw disabled, opening a directory opens within the
         -- window like netrw would, regardless of window.position
         -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-        use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+        use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
         -- instead of relying on nvim autocmd events.
       },
       buffers = {
@@ -562,7 +563,7 @@
         group_empty_dirs = true, -- when true, empty directories will be grouped together
         show_unloaded = false, -- When working with sessions, for example, restored but unfocused buffers
         -- are mark as "unloaded". Turn this on to view these unloaded buffer.
-        terminals_first = false, -- when true, terminals will be listed before file buffers
+        terminals_first = true, -- when true, terminals will be listed before file buffers
         window = {
           mappings = {
             ["<bs>"] = "navigate_up",

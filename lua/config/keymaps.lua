@@ -17,10 +17,10 @@ map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
 -- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize +5<cr>", { desc = "Increase Window Height" })
-map("n", "<C-Down>", "<cmd>resize -5<cr>", { desc = "Decrease Window Height" })
-map("n", "<C-Left>", "<cmd>vertical resize -8<cr>", { desc = "Decrease Window Width" })
-map("n", "<C-Right>", "<cmd>vertical resize +8<cr>", { desc = "Increase Window Width" })
+map("n", "<S-Up>", "<cmd>resize +10<cr>", { desc = "Increase Window Height" })
+map("n", "<S-Down>", "<cmd>resize -10<cr>", { desc = "Decrease Window Height" })
+map("n", "<S-Left>", "<cmd>vertical resize -5<cr>", { desc = "Decrease Window Width" })
+map("n", "<S-Right>", "<cmd>vertical resize +5<cr>", { desc = "Increase Window Width" })
 
 -- Move Lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
@@ -203,15 +203,19 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 -- DO NOT USE `LazyVim.safe_keymap_set` IN YOUR OWN CONFIG!!
 -- use `vim.keymap.set` instead
 -- local mymap = vim.keymap.set
-vim.keymap.set("n", "<localleader>j", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
-vim.keymap.set("n", "<localleader>jo", ":noautocmd MoltenEnterOutput<CR>", { desc = "open output window", silent = true })
-vim.keymap.set("n", "<localleader>rr", ":MoltenReevaluateCell<CR>", { desc = "re-eval cell", silent = true })
+vim.keymap.set("n", "<BS>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+vim.keymap.set("n", "<localleader>e", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
 vim.keymap.set("v", "<localleader>r", ":<C-u>MoltenEvaluateVisual<CR>gv", { desc = "execute visual selection", silent = true })
+vim.keymap.set("n", "<localleader>rl", ":MoltenEvaluateLine<CR>", { desc = "evaluate line", silent = true })
+vim.keymap.set("n", "<localleader>rr", ":MoltenReevaluateCell<CR>", { desc = "re-eval cell", silent = true })
+vim.keymap.set("n", "<localleader>oo", ":noautocmd MoltenEnterOutput<CR>", { desc = "open output window", silent = true })
 vim.keymap.set("n", "<localleader>oh", ":MoltenHideOutput<CR>", { desc = "close output window", silent = true })
 vim.keymap.set("n", "<localleader>md", ":MoltenDelete<CR>", { desc = "delete Molten cell", silent = true })
 
 -- if you work with html outputs:
 vim.keymap.set("n", "<localleader>mx", ":MoltenOpenInBrowser<CR>", { desc = "open output in browser", silent = true })
+vim.keymap.set("n", "<localleader>mi", ":MoltenInit<CR>", { desc = "Initialize the plugin", silent = true })
 
 local runner = require("quarto.runner")
 vim.keymap.set("n", "<localleader>rc", runner.run_cell,  { desc = "run cell", silent = true })
@@ -223,4 +227,13 @@ vim.keymap.set("n", "<localleader>RA", function()
   runner.run_all(true)
 end, { desc = "run all cells of all languages", silent = true })
 
-vim.keymap.set("n", "<BS>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<localleader>ip", function()
+  local venv = os.getenv("VIRTUAL_ENV")
+  if venv ~= nil then
+    -- in the form of /home/benlubas/.virtualenvs/VENV_NAME
+    venv = string.match(venv, ".*/(.*)")
+    vim.cmd(("MoltenInit %s "):format(venv))
+  else
+    vim.cmd("MoltenInit python3")
+  end
+end, { desc = "Initialize Molten for python3", silent = true })

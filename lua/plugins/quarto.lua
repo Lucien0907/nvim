@@ -1,6 +1,8 @@
 return {
   {
     "quarto-dev/quarto-nvim",
+    ft = { "quarto", "markdown" },
+    dev = false,
     dependencies = {
       "jmbuhr/otter.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -30,7 +32,6 @@ return {
         enabled = true,
         default_method = "molten",
       },
-      ft = { "quarto", "markdown" },
     },
   },
 }

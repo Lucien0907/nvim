@@ -132,7 +132,7 @@ vim.g.python3_host_prog = "/home/lucien/.pyenv/versions/3.10.14/envs/pynvim/bin/
 
 -- I find auto open annoying, keep in mind setting this option will require setting
 -- a keybind for `:noautocmd MoltenEnterOutput` to open the output again
-vim.g.molten_auto_open_output = false
+vim.g.molten_auto_open_output = true
 
 -- this guide will be using image.nvim
 -- Don't forget to setup and install the plugin if you want to view image outputs
