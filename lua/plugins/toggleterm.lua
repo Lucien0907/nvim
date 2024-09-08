@@ -30,7 +30,7 @@ return {
         end
       end,
       winbar = {
-        enabled = true,
+        enabled = false,
         name_formatter = function(term) -- term: Terminal
           return term.name_formatter
         end,

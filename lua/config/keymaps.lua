@@ -203,15 +203,15 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 -- DO NOT USE `LazyVim.safe_keymap_set` IN YOUR OWN CONFIG!!
 -- use `vim.keymap.set` instead
 -- local mymap = vim.keymap.set
-vim.keymap.set("n", "<BS>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<BS>", "<CMD>Oil<CR>", { desc = "Open parent directory"})
 
 vim.keymap.set("n", "<localleader>e", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
 vim.keymap.set("v", "<localleader>r", ":<C-u>MoltenEvaluateVisual<CR>gv", { desc = "execute visual selection", silent = true })
 vim.keymap.set("n", "<localleader>rl", ":MoltenEvaluateLine<CR>", { desc = "evaluate line", silent = true })
-vim.keymap.set("n", "<localleader>rr", ":MoltenReevaluateCell<CR>", { desc = "re-eval cell", silent = true })
-vim.keymap.set("n", "<localleader>oo", ":noautocmd MoltenEnterOutput<CR>", { desc = "open output window", silent = true })
+vim.keymap.set("n", "<localleader>rr", ":MoltenReevaluateCell<CR>", { desc ="re-eval cell", silent = true })
+vim.keymap.set("n", "<localleader>oo", ":noautocmd MoltenEnterOutput<CR>", {desc = "open output window", silent = true })
 vim.keymap.set("n", "<localleader>oh", ":MoltenHideOutput<CR>", { desc = "close output window", silent = true })
-vim.keymap.set("n", "<localleader>md", ":MoltenDelete<CR>", { desc = "delete Molten cell", silent = true })
+vim.keymap.set("n", "<localleader>md", ":MoltenDelete<CR>", { desc = "deleteMolten cell", silent = true })
 
 -- if you work with html outputs:
 vim.keymap.set("n", "<localleader>mx", ":MoltenOpenInBrowser<CR>", { desc = "open output in browser", silent = true })
@@ -234,6 +234,10 @@ vim.keymap.set("n", "<localleader>ip", function()
     venv = string.match(venv, ".*/(.*)")
     vim.cmd(("MoltenInit %s "):format(venv))
   else
-    vim.cmd("MoltenInit python3")
+    vim.cmd("MoltenInit")
   end
 end, { desc = "Initialize Molten for python3", silent = true })
+
+vim.keymap.set("n", "<localleader>qi", function()
+  vim.cmd("QuartoActivate")
+end, { desc = "Activate Quarto", silent=true})

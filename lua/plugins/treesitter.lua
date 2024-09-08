@@ -7,11 +7,11 @@ return {
         set_jumps = false, -- you can change this if you want.
         goto_next_start = {
           --- ... other keymaps
-          ["]z"] = { query = "@code_cell.inner", desc = "next code block" },
+          ["]b"] = { query = "@code_cell.inner", desc = "next code block" },
         },
         goto_previous_start = {
           --- ... other keymaps
-          ["[z"] = { query = "@code_cell.inner", desc = "previous code block" },
+          ["[b"] = { query = "@code_cell.inner", desc = "previous code block" },
         },
       },
       select = {

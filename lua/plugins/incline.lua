@@ -6,11 +6,11 @@ return {
     require("incline").setup({
       window = {
         padding = 0,
-        margin = { horizontal = 0 },
+        margin = { horizontal = 50 },
         overlap = {
           borders = true,
-          statusline = false,
-          tabline = false,
+          statusline = true,
+          tabline = true,
           winbar = true,
         },
         placement = {
@@ -24,7 +24,7 @@ return {
         local modified = vim.bo[props.buf].modified and "bold,italic" or "bold"
 
         local function get_git_diff()
-          local icons = { removed = "", changed = "", added = "" }
+          local icons = { removed = " ", changed = " ", added = " " }
           icons["changed"] = icons.modified
           local signs = vim.b[props.buf].gitsigns_status_dict
           local labels = {}
@@ -42,7 +42,7 @@ return {
           return labels
         end
         local function get_diagnostic_label()
-          local icons = { error = "", warn = "", info = "", hint = "" }
+          local icons = { error = "", warn = " ", info = " ", hint = "" }
           local label = {}
 
           for severity, icon in pairs(icons) do
@@ -71,16 +71,20 @@ return {
             fgcol = "#ff9e64"
           end
         end
+        local dragon_colors = require("kanagawa.colors").setup({ theme = 'dragon'})
+        local bgcol_norm = dragon_colors.palette.dragonBlack0
+        local bgcol_focus = dragon_colors.palette.dragonBlack4
+        local bgcol = props.focused and bgcol_focus or bgcol_norm
+        local bgcol_nwin = props.focused and '#9d7cd8' or bgcol
 
-        local bgcol = props.focused and "#9d7cd8" or "#24283b"
         local buffer = {
-          { " " .. vim.api.nvim_win_get_number(props.win) .. " ", guibg = bgcol },
-          { " " .. (ft_icon or "") .. " ", guifg = ft_color, guibg = "#24283b" },
-          { filename .. " ", gui = modified, guifg = fgcol, guibg = "#24283b" },
-
-          { mod_icon, guifg = fg_icon, guibg = "#24283b" },
-          { get_diagnostic_label(), guibg = "#24283b" },
-          { get_git_diff(), guibg = "#24283b" },
+          -- { " " .. vim.api.nvim_win_get_number(props.win) .. " ", guibg = bgcol_nwin },
+          -- { " " .. (ft_icon or "") .. " ", guifg = ft_color, guibg = bgcol },
+          -- { filename .. "      ", gui = modified, guifg = fgcol, guibg = bgcol },
+          --
+          -- { mod_icon, guifg = fg_icon, guibg = bgcol },
+          -- { get_diagnostic_label(), guibg = bgcol },
+          -- { get_git_diff(), guibg = bgcol },
         }
         return buffer
       end,

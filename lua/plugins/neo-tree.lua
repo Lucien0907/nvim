@@ -65,7 +65,7 @@
           { source = "filesystem" },
           { source = "git_status" },
           { source = "document_symbols" },
-          -- { source = "buffers" },
+          { source = "buffers" },
         },
         content_layout = "center", -- only with `tabs_layout` = "equal", "focus"
         --                start  : |/ 󰓩 bufname     \/...

@@ -1,8 +1,8 @@
 return {
   {
     "stevearc/oil.nvim",
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+    -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
     -- Optional dependencies
     opts = {
       -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
@@ -13,8 +13,8 @@ return {
       columns = {
         "icon",
         -- "permissions",
-        "size",
-        "mtime",
+        -- "size",
+        -- "mtime",
       },
       -- Buffer-local options to use for oil buffers
       buf_options = {
@@ -24,7 +24,7 @@ return {
       -- Window-local options to use for oil buffers
       win_options = {
         wrap = false,
-        signcolumn = "no",
+        signcolumn = "yes",
         cursorcolumn = false,
         foldcolumn = "0",
         spell = false,

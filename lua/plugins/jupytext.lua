@@ -1,7 +1,7 @@
 return {
   "GCBallesteros/jupytext.nvim",
   config = true,
-  lazy = false,
+  -- lazy = false,
   opts = {
     style = "markdown",
     output_extension = "md",
