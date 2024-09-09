@@ -128,6 +128,7 @@ end
 vim.g.markdown_recommended_style = 0
 
 -- Add any additional options here
+vim.g.python3_host_prog = "/home/lucien/.pyenv/versions/3.10.14/envs/pynvim/bin/python3"
 
 -- I find auto open annoying, keep in mind setting this option will require setting
 -- a keybind for `:noautocmd MoltenEnterOutput` to open the output again

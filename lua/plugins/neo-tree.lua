@@ -349,7 +349,6 @@
       --
       -- see `:h neo-tree-custom-commands-global`
       commands = {}, -- A list of functions
-
       window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
         -- possible options. These can also be functions that return these options.
         position = "left", -- left, right, top, bottom, float, current

@@ -240,4 +240,4 @@ end, { desc = "Initialize Molten for python3", silent = true })
 
 vim.keymap.set("n", "<localleader>qi", function()
   vim.cmd("QuartoActivate")
-end, { desc = "Activate Quarto", silent=true})
+end, { desc = "Activate Quarto", silent=true })
