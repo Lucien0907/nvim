@@ -180,7 +180,6 @@ local imb = function(e) -- init molten buffer
       if venv ~= nil then
         -- kernel_name = string.match(venv, "/.+/(.+)")
         kernel_name = string.match(venv, ".*/([^/]+)$")
-        print(kernel_name)
       end
     end
     if kernel_name ~= nil and vim.tbl_contains(kernels, kernel_name) then
