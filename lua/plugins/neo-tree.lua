@@ -480,7 +480,7 @@
           force_visible_in_empty_folder = false, -- when true, hidden files will be shown if the root folder is otherwise empty
           show_hidden_count = true, -- when true, the number of hidden items in each folder will be shown as the last entry
           hide_dotfiles = true,
-          hide_gitignored = true,
+          hide_gitignored = false,
           hide_hidden = true, -- only works on Windows for hidden files/directories
           hide_by_name = {
             ".DS_Store",
@@ -492,7 +492,7 @@
             --"*/src/*/tsconfig.json"
           },
           always_show = { -- remains visible even if other settings would normally hide it
-            --".gitignored",
+            ".gitignore",
           },
           always_show_by_pattern = { -- uses glob style patterns
             --".env*",
