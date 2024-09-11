@@ -383,13 +383,13 @@
           ["<cr>"] = "open",
           -- ["<cr>"] = { "open", config = { expand_nested_files = true } }, -- expand nested file takes precedence
           ["<esc>"] = "cancel", -- close preview or floating neo-tree window
-          ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = false } },
+          ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
           ["<C-f>"] = { "scroll_preview", config = { direction = -10 } },
           ["<C-b>"] = { "scroll_preview", config = { direction = 10 } },
           ["l"] = "focus_preview",
-          ["S"] = "open_split",
+          ["-"] = "open_split",
           -- ["S"] = "split_with_window_picker",
-          ["s"] = "open_vsplit",
+          ["\\"] = "open_vsplit",
           -- ["sr"] = "open_rightbelow_vs",
           -- ["sl"] = "open_leftabove_vs",
           -- ["s"] = "vsplit_with_window_picker",
@@ -601,7 +601,7 @@
         },
       },
       document_symbols = {
-        follow_cursor = false,
+        follow_cursor = true,
         client_filters = "first",
         renderers = {
           root = {
