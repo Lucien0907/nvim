@@ -205,6 +205,7 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 -- use `vim.keymap.set` instead
 -- local mymap = vim.keymap.set
 vim.keymap.set("n", "<BS>", "<CMD>Oil<CR>", { desc = "Open parent directory"})
+vim.keymap.set("n", "<leader>dd", "<CMD>Lazydocker<CR>", { desc = "Open Lazydocker"})
 
 vim.keymap.set("n", "<localleader>e", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
 vim.keymap.set("v", "<localleader>r", ":<C-u>MoltenEvaluateVisual<CR>gv", { desc = "execute visual selection", silent = true })
