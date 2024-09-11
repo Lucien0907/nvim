@@ -29,8 +29,8 @@ vim.g.lazygit_config = true
 
 -- Options for the LazyVim statuscolumn
 vim.g.lazyvim_statuscolumn = {
-  folds_open = false, -- show fold sign when fold is open
-  folds_githl = false, -- highlight fold sign with git sign color
+  folds_open = true, -- show fold sign when fold is open
+  folds_githl = true, -- highlight fold sign with git sign color
 }
 
 -- Optionally setup the terminal to use
@@ -59,7 +59,7 @@ opt.autowrite = true -- Enable auto write
 -- integration works automatically. Requires Neovim >= 0.10.0
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 0 -- Hide * markup for bold and italic, but not markers with substitutions
+opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
 opt.expandtab = true -- Use spaces instead of tabs
