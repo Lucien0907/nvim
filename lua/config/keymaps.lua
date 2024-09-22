@@ -180,6 +180,7 @@ map("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to Right Window" })
 -- map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 -- map("t", "<c-->", "<cmd>close<cr>", { desc = "which_key_ignore" })
 vim.keymap.del("n", "<c-/>")
+vim.keymap.del("n", "<c-_>")
 
 -- windows
 map("n", "<leader>w", "<c-w>", { desc = "Windows", remap = true })

@@ -9,6 +9,12 @@ return {
       { [[<c-/>2]], "<cmd>ToggleTerm 2<cr>", desc = "Term 2" },
       { [[<c-/>3]], "<cmd>ToggleTerm 3<cr>", desc = "Term 3" },
       { [[<c-/>f]], "<cmd>TermSelect<cr>", desc = "Select opened terminals" },
+      { [[<c-_><c-_>]], "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" },
+      { [[<c-_>/]], "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" },
+      { [[<c-_>1]], "<cmd>ToggleTerm 1<cr>", desc = "Term 1" },
+      { [[<c-_>2]], "<cmd>ToggleTerm 2<cr>", desc = "Term 2" },
+      { [[<c-_>3]], "<cmd>ToggleTerm 3<cr>", desc = "Term 3" },
+      { [[<c-_>f]], "<cmd>TermSelect<cr>", desc = "Select opened terminals" },
     },
     opts = {
       open_mapping = [[<c-/><c-/>]],
