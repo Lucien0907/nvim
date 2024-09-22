@@ -7,7 +7,7 @@ return {
       -- Cursor path
       cursor = {
         -- Whether to enable this animation
-        enable = true,
+        enable = false,
         -- Vertical scroll
       },
       scroll = {

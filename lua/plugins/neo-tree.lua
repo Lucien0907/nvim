@@ -22,7 +22,7 @@
       add_blank_line_at_top = false, -- Add a blank line at the top of the tree.
       auto_clean_after_session_restore = false, -- Automatically clean up broken neo-tree buffers saved in sessions
       close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
-      default_source = "filesystem", -- you can choose a specific source `last` here which indicates the last used source
+      default_source = "last", -- you can choose a specific source `last` here which indicates the last used source
       enable_diagnostics = true,
       enable_git_status = true,
       enable_modified_markers = true, -- Show markers for files with unsaved changes.
@@ -59,19 +59,19 @@
       source_selector = {
         winbar = true, -- toggle to show selector on winbar
         statusline = false, -- toggle to show selector on statusline
-        show_scrolled_off_parent_node = false, -- this will replace the tabs with the parent path
+        show_scrolled_off_parent_node = true, -- this will replace the tabs with the parent path
         -- of the top visible node when scrolled down.
         sources = {
           { source = "filesystem" },
-          { source = "git_status" },
-          { source = "document_symbols" },
           { source = "buffers" },
+          { source = "git_status" },
+          -- { source = "document_symbols" },
         },
         content_layout = "center", -- only with `tabs_layout` = "equal", "focus"
         --                start  : |/ 󰓩 bufname     \/...
         --                end    : |/     󰓩 bufname \/...
         --                center : |/   󰓩 bufname   \/...
-        tabs_layout = "center", -- start, end, center, equal, focus
+        tabs_layout = "equal", -- start, end, center, equal, focus
         --             start  : |/  a  \/  b  \/  c  \            |
         --             end    : |            /  a  \/  b  \/  c  \|
         --             center : |      /  a  \/  b  \/  c  \      |
@@ -83,8 +83,8 @@
         padding = 0, -- can be int or table
         -- padding = { left = 2, right = 0 },
         -- separator = "▕", -- can be string or table, see below
-        separator = { left = "▏", right = "▕" },
-        -- separator = { left = "/", right = "\\", override = nil },     -- |/  a  \/  b  \/  c  \...
+        -- separator = { left = "▏", right = "▕" },
+        separator = { left = "/", right = "\\", override = nil },     -- |/  a  \/  b  \/  c  \...
         -- separator = { left = "/", right = "\\", override = "right" }, -- |/  a  \  b  \  c  \...
         -- separator = { left = "/", right = "\\", override = "left" },  -- |/  a  /  b  /  c  /...
         -- separator = { left = "/", right = "\\", override = "active" },-- |/  a  / b:active \  c  \...
@@ -227,7 +227,7 @@
           highlight = "NeoTreeModified",
         },
         name = {
-          trailing_slash = false,
+          trailing_slash = true,
           highlight_opened_files = true, -- Requires `enable_opened_markers = true`.
           -- Take values in { false (no highlight), true (only loaded),
           -- "all" (both loaded and unloaded)}. For more information,
@@ -379,6 +379,10 @@
             "toggle_node",
             nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
           },
+          ["l"] = {
+            "toggle_node",
+            nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use
+          },
           ["<2-LeftMouse>"] = "open",
           ["<cr>"] = "open",
           -- ["<cr>"] = { "open", config = { expand_nested_files = true } }, -- expand nested file takes precedence
@@ -386,7 +390,7 @@
           ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
           ["<C-f>"] = { "scroll_preview", config = { direction = -10 } },
           ["<C-b>"] = { "scroll_preview", config = { direction = 10 } },
-          ["l"] = "focus_preview",
+          ["<C-p>"] = "focus_preview",
           ["-"] = "open_split",
           -- ["S"] = "split_with_window_picker",
           ["\\"] = "open_vsplit",
@@ -419,14 +423,14 @@
           ["e"] = "toggle_auto_expand_width",
           ["q"] = "close_window",
           ["?"] = "show_help",
-          ["<"] = "prev_source",
-          [">"] = "next_source",
+          ["H"] = "prev_source",
+          ["L"] = "next_source",
         },
       },
       filesystem = {
         window = {
           mappings = {
-            ["H"] = "toggle_hidden",
+            [","] = "toggle_hidden",
             ["/"] = "fuzzy_finder",
             ["D"] = "fuzzy_finder_directory",
             --["/"] = "filter_as_you_type", -- this was the default until v1.28

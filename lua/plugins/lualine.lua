@@ -5,7 +5,7 @@ return {
       options = {
         icons_enabled = true,
         theme = "auto",
-        component_separators = { left = '', right = '' },
+        component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = {},
@@ -28,13 +28,13 @@ return {
         lualine_y = {},
         lualine_z = { "branch" },
       },
-      inactivate_winbar = {
+      inactive_winbar = {
         lualine_a = { "filename" },
         lualine_b = { "diff", "diagnostics" },
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {},
+        lualine_z = { "branch" },
       },
     },
   },
