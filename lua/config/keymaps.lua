@@ -20,7 +20,7 @@ map("n", "<M-s>", "<cmd>update<cr>", { desc = "Update" })
 
 -- floating terminal
 vim.keymap.del("n", "<c-/>")
-vim.ketmap.del("n", "<c-_>")
+vim.keymap.del("n", "<c-_>")
 
 -- Terminal Mappings
 -- map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
