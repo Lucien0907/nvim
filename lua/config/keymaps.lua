@@ -16,14 +16,13 @@ map("n", "<leader>qf", Snacks.bufdelete.delete, { desc = "Delete Buffer" })
 
 -- save
 map("n", "<leader>bw", "<cmd>update<cr>", { desc = "Update" })
-map("n", "<M-s>", "<cmd>update<cr>", { desc = "Update" })
 
 -- floating terminal
 vim.keymap.del("n", "<c-/>")
 vim.keymap.del("n", "<c-_>")
 
 -- Terminal Mappings
--- map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+-- map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terpminal" })
 -- map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
 -- Custom terminal
@@ -45,6 +44,8 @@ Snacks.toggle.zoom():map("<leader>wm"):map("<leader>uZ")
 Snacks.toggle.zen():map("<leader>uz")
 
 -- plugins
-vim.keymap.set("n", "<BS>", "<CMD>Oil<CR>", { desc = "Open parent directory"})
+vim.keymap.set("n", "<BS>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-map("n", "<leader>h", function () Snacks.dashboard.open() end, { desc = "Homepage" })
+map("n", "<leader>h", function()
+  Snacks.dashboard.open()
+end, { desc = "Homepage" })
