@@ -36,5 +36,3 @@ map("n", "<leader>ww", "<Esc>", { desc = "Nothing", remap = true })
 -- DO NOT USE `LazyVim.safe_keymap_set` IN YOUR OWN CONFIG!!
 -- use `vim.keymap.set` instead
 -- local mymap = vim.keymap.set
-
--- map("n", "<leader>h", function() Snacks.dashboard.open() end, { desc = "Homepage" })
