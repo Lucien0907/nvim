@@ -1,6 +1,8 @@
 return {
   {
     "stevearc/oil.nvim",
+    lazy = false,
+    keys = { { "<BS>", "<CMD>Oil<CR>", desc = "Open parent directory" } },
     dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
     -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
     -- Optional dependencies
