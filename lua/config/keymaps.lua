@@ -17,14 +17,6 @@ map("n", "<leader>qf", Snacks.bufdelete.delete, { desc = "Delete Buffer" })
 -- save
 map("n", "<leader>bw", "<cmd>update<cr>", { desc = "Update" })
 
--- floating terminal
-vim.keymap.del("n", "<c-/>")
-vim.keymap.del("n", "<c-_>")
-
--- Terminal Mappings
--- map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terpminal" })
--- map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
-
 -- Custom terminal
 map("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 map("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to Left Window" })
