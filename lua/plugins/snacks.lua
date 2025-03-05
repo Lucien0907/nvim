@@ -33,6 +33,8 @@ return {
       },
     },
     opts = {
+      explorer = {},
+      image = {},
       picker = {},
       dashboard = {
         preset = {
