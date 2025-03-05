@@ -34,7 +34,6 @@ return {
     },
     opts = {
       picker = {},
-      statuscolumn = {},
       dashboard = {
         preset = {
           header = custom_header,
