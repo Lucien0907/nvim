@@ -23,13 +23,15 @@ return {
   -- lazy.nvim
   {
     "folke/snacks.nvim",
-    keys = { {
-      "<leader>h",
-      function()
-        Snacks.dashboard.open()
-      end,
-      desc = "Homepage",
-    } },
+    keys = {
+      {
+        "<leader>h",
+        function()
+          Snacks.dashboard.open()
+        end,
+        desc = "Homepage",
+      },
+    },
     opts = {
       explorer = {},
       image = {},
