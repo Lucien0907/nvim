@@ -2,6 +2,7 @@ return {
   {
     "stevearc/oil.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+    keys = { { "<BS>", "<CMD>Oil<CR>", desc = "Open parent directory" } },
     -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
     -- Optional dependencies
     opts = {
@@ -35,7 +36,11 @@ return {
         ["H"] = { "actions.toggle_hidden", mode = "n" },
         ["g\\"] = { "actions.toggle_trash", mode = "n" },
         ["<leader>rl"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
-        ["<leader>rj"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split", },
+        ["<leader>rj"] = {
+          "actions.select",
+          opts = { horizontal = true },
+          desc = "Open the entry in a horizontal split",
+        },
         ["<leader>rt"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
         ["<leader>rp"] = "actions.preview",
       },
@@ -50,10 +55,10 @@ return {
         is_always_hidden = function(name, bufnr)
           return vim.startswith(name, "..")
         end,
-	-- Customize the highlight group for the file name
-	highlight_filename = function(entry, is_hidden, is_link_target, is_link_orphan)
-	  return nil
-	end,
+        -- Customize the highlight group for the file name
+        highlight_filename = function(entry, is_hidden, is_link_target, is_link_orphan)
+          return nil
+        end,
       },
     },
   },
