@@ -2,6 +2,7 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 local opt = vim.opt
+
 opt.scrolloff = 12 -- Lines of context
 opt.winminwidth = 10 -- Minimum window width
 opt.wrap = true -- Disable line wrap
