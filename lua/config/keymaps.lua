@@ -32,3 +32,7 @@ map("n", "<leader>qw", "<C-W>c", { desc = "Delete Window", remap = true })
 map("n", "<leader>w", "<c-w>", { desc = "Windows", remap = true })
 map("n", "<c-w>w", "<Esc>", { desc = "Nothing", remap = true })
 map("n", "<leader>ww", "<Esc>", { desc = "Nothing", remap = true })
+
+-- DO NOT USE `LazyVim.safe_keymap_set` IN YOUR OWN CONFIG!!
+-- use `vim.keymap.set` instead
+-- local mymap = vim.keymap.set
