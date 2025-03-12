@@ -32,8 +32,6 @@ map("n", "<leader>qw", "<C-W>c", { desc = "Delete Window", remap = true })
 map("n", "<leader>w", "<c-w>", { desc = "Windows", remap = true })
 map("n", "<c-w>w", "<Esc>", { desc = "Nothing", remap = true })
 map("n", "<leader>ww", "<Esc>", { desc = "Nothing", remap = true })
-Snacks.toggle.zoom():map("<leader>wm"):map("<leader>uZ")
-Snacks.toggle.zen():map("<leader>uz")
 
 -- plugins
 vim.keymap.set("n", "<BS>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
