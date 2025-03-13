@@ -3,6 +3,7 @@
 -- Add any additional options here
 local opt = vim.opt
 
+opt.shell = "/bin/bash"
 opt.scrolloff = 12 -- Lines of context
 opt.winminwidth = 10 -- Minimum window width
 opt.wrap = true -- Disable line wrap
