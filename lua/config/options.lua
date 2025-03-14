@@ -8,4 +8,5 @@ opt.winminwidth = 10 -- Minimum window width
 opt.wrap = true -- Disable line wrap
 
 -- Add any additional options here
-vim.g.python3_host_prog = "/Users/tao-wei/.pyenv/versions/pynvim/bin/python"
+local home = os.getenv("HOME")
+vim.g.python3_host_prog = home .. "/.pyenv/versions/pynvim/bin/python"
