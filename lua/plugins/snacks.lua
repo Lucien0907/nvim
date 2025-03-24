@@ -34,7 +34,30 @@ return {
     },
     opts = {
       explorer = {},
-      image = {},
+      image = {
+        force = false, -- try displaying the image, even if the terminal does not support it
+        doc = {
+          -- enable image viewer for documents
+          -- a treesitter parser must be available for the enabled languages.
+          enabled = true,
+          -- render the image inline in the buffer
+          -- if your env doesn't support unicode placeholders, this will be disabled
+          -- takes precedence over `opts.float` on supported terminals
+          inline = true,
+          -- render the image in a floating window
+          -- only used if `opts.inline` is disabled
+          float = true,
+          max_width = 80,
+          max_height = 40,
+          -- Set to `true`, to conceal the image text when rendering inline.
+          -- (experimental)
+          ---conceal = function(lang, type)
+          ---  -- only conceal math expressions
+          ---  return type == "math"
+          ---end,
+          conceal = true,
+        },
+      },
       picker = { ui_select = true, focus = "list" },
       dashboard = {
         preset = {
