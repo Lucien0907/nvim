@@ -5,6 +5,7 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
+      transparent_background = true,
       custom_palette = function(palette)
         palette.black = "#000000"
         palette.bg0 = "#000000"

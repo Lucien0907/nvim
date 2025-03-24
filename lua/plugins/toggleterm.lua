@@ -4,12 +4,11 @@ return {
     version = "*",
     keys = {
       { [[<leader>tt]], "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" },
-      { [[<leader>t1]], "<cmd>ToggleTerm 1<cr>", desc = "Term 1" },
-      { [[<leader>t2]], "<cmd>ToggleTerm 2<cr>", desc = "Term 2" },
-      { [[<leader>t3]], "<cmd>ToggleTerm 3<cr>", desc = "Term 3" },
-      { [[<leader>t4]], "<cmd>ToggleTerm 4<cr>", desc = "Term 4" },
-      { [[<leader>t5]], "<cmd>ToggleTerm 5<cr>", desc = "Term 5" },
-      { [[<leader>t6]], "<cmd>ToggleTerm 6<cr>", desc = "Term 6" },
+      { [[<leader>t1]], "<cmd>ToggleTerm 1<cr>i", desc = "Term 1" },
+      { [[<leader>t2]], "<cmd>ToggleTerm 2<cr>i", desc = "Term 2" },
+      { [[<leader>t3]], "<cmd>ToggleTerm 3<cr>i", desc = "Term 3" },
+      { [[<leader>t4]], "<cmd>ToggleTerm 4<cr>i", desc = "Term 4" },
+      { [[<leader>t5]], "<cmd>ToggleTerm 5<cr>i", desc = "Term 5" },
       { [[<leader>ts]], "<cmd>TermSelect<cr>", desc = "Select opened terminals" },
     },
     opts = {
